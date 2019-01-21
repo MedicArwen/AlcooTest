@@ -8,20 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		FC3267B321F217870090AD87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3267B221F217870090AD87 /* AppDelegate.swift */; };
-		FC3267B521F217870090AD87 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3267B421F217870090AD87 /* ViewController.swift */; };
+		FC3267B521F217870090AD87 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3267B421F217870090AD87 /* MainVC.swift */; };
 		FC3267B821F217870090AD87 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC3267B621F217870090AD87 /* Main.storyboard */; };
 		FC3267BA21F217890090AD87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC3267B921F217890090AD87 /* Assets.xcassets */; };
 		FC3267BD21F217890090AD87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC3267BB21F217890090AD87 /* LaunchScreen.storyboard */; };
+		FC51390C21F5C57700373C78 /* drinker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC51390B21F5C57700373C78 /* drinker.swift */; };
+		FC51390E21F5D12B00373C78 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC51390D21F5D12B00373C78 /* Utilities.swift */; };
+		FC51391021F5D86700373C78 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC51390F21F5D86700373C78 /* SettingVC.swift */; };
+		FC51391221F6025900373C78 /* InfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC51391121F6025900373C78 /* InfoVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FC3267AF21F217870090AD87 /* AlcooTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlcooTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC3267B221F217870090AD87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FC3267B421F217870090AD87 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FC3267B421F217870090AD87 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		FC3267B721F217870090AD87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FC3267B921F217890090AD87 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC3267BC21F217890090AD87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC3267BE21F217890090AD87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC51390B21F5C57700373C78 /* drinker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = drinker.swift; sourceTree = "<group>"; };
+		FC51390D21F5D12B00373C78 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		FC51390F21F5D86700373C78 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
+		FC51391121F6025900373C78 /* InfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +62,42 @@
 		FC3267B121F217870090AD87 /* AlcooTest */ = {
 			isa = PBXGroup;
 			children = (
-				FC3267B221F217870090AD87 /* AppDelegate.swift */,
-				FC3267B421F217870090AD87 /* ViewController.swift */,
+				FC51390D21F5D12B00373C78 /* Utilities.swift */,
 				FC3267B621F217870090AD87 /* Main.storyboard */,
-				FC3267B921F217890090AD87 /* Assets.xcassets */,
 				FC3267BB21F217890090AD87 /* LaunchScreen.storyboard */,
+				FC3267C621F217D60090AD87 /* Models */,
+				FC3267C521F217CD0090AD87 /* Views */,
+				FC3267C421F217BF0090AD87 /* Controlers */,
+				FC3267B221F217870090AD87 /* AppDelegate.swift */,
+				FC3267B921F217890090AD87 /* Assets.xcassets */,
 				FC3267BE21F217890090AD87 /* Info.plist */,
 			);
 			path = AlcooTest;
+			sourceTree = "<group>";
+		};
+		FC3267C421F217BF0090AD87 /* Controlers */ = {
+			isa = PBXGroup;
+			children = (
+				FC3267B421F217870090AD87 /* MainVC.swift */,
+				FC51390F21F5D86700373C78 /* SettingVC.swift */,
+				FC51391121F6025900373C78 /* InfoVC.swift */,
+			);
+			path = Controlers;
+			sourceTree = "<group>";
+		};
+		FC3267C521F217CD0090AD87 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FC3267C621F217D60090AD87 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FC51390B21F5C57700373C78 /* drinker.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,7 +171,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC3267B521F217870090AD87 /* ViewController.swift in Sources */,
+				FC51390C21F5C57700373C78 /* drinker.swift in Sources */,
+				FC3267B521F217870090AD87 /* MainVC.swift in Sources */,
+				FC51391021F5D86700373C78 /* SettingVC.swift in Sources */,
+				FC51390E21F5D12B00373C78 /* Utilities.swift in Sources */,
+				FC51391221F6025900373C78 /* InfoVC.swift in Sources */,
 				FC3267B321F217870090AD87 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -213,7 +253,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -268,7 +308,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -285,6 +325,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8G9A2V5Z8U;
 				INFOPLIST_FILE = AlcooTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -292,7 +333,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.networked-hells.AlcooTest";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -303,6 +344,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8G9A2V5Z8U;
 				INFOPLIST_FILE = AlcooTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -310,7 +352,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.networked-hells.AlcooTest";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
