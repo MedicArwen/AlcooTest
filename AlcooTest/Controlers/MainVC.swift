@@ -10,21 +10,29 @@ import UIKit
 
 class MainVC: UIViewController {
     var user = Drinker()
+    var actuelProfil = Profil()
+    var drinkList = [Drink]()
     @IBOutlet weak var beerCount: UILabel!
     @IBOutlet weak var wineCount: UILabel!
     @IBOutlet weak var whiskeyCount: UILabel!
     @IBOutlet weak var vodkaCount: UILabel!
     
+    @IBOutlet var listGlassesCounter: [UILabel]!
     
     @IBOutlet weak var valeurEstimationText: UILabel!
     
     @IBOutlet weak var iconeMortBourre: UIImageView!
+    
+    @IBOutlet var listOfDrinkStepper: [UIStepper]!
     
     
     @IBOutlet weak var stepperBeer: UIStepper!
     @IBOutlet weak var stepperWine: UIStepper!
     @IBOutlet weak var stepperWhiskey: UIStepper!
     @IBOutlet weak var stepperVodka: UIStepper!
+ 
+    @IBOutlet var test: [UILabel]!
+    
     
     override func viewWillAppear(_ animated: Bool) {
         refreshViewOnDrinkerChange()
@@ -33,34 +41,49 @@ class MainVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        actuelProfil.nbOfGllasses = [0,0,0,0]
+        drinkList.append(Drink(name:"Beer",alcoholRate: 0.04,sizeGlass: 330))
+        drinkList.append(Drink(name:"Whiskey",alcoholRate: 0.4,sizeGlass: 50))
+        drinkList.append(Drink(name:"Wine",alcoholRate: 0.12,sizeGlass: 120))
+        drinkList.append(Drink(name:"Vodka",alcoholRate: 0.4,sizeGlass: 40))
     }
     
     @IBAction func activateStepperClick(_ sender: UIStepper) {
-        switch sender.tag {
+       /* switch sender.tag {
         case 0:
-            user.nbBeer = Int(sender.value)
+           // user.nbBeer = Int(sender.value)
+            actuelProfil.drinkSomething(alcoolIndex: 0, glassCount: Int(sender.value))
         case 1:
-            user.nbWine = Int(sender.value)
+            //user.nbWine = Int(sender.value)
+            actuelProfil.drinkSomething(alcoolIndex: 0, glassCount: Int(sender.value))
         case 2:
-            user.nbWhiskey = Int(sender.value)
+            //user.nbWhiskey = Int(sender.value)
+            actuelProfil.drinkSomething(alcoolIndex: 0, glassCount: Int(sender.value))
         case 3:
-            user.nbVodka = Int(sender.value)
+           // user.nbVodka = Int(sender.value)
+            actuelProfil.drinkSomething(alcoolIndex: 0, glassCount: Int(sender.value))
         default:
             break
-        }
+        }*/
+         actuelProfil.drinkSomething(alcoolIndex: sender.tag, glassCount: Int(sender.value))
+        print(sender.tag)
+        print(listGlassesCounter.count)
+        print(listGlassesCounter[sender.tag])
+        listGlassesCounter[sender.tag].text =  "\(Int(sender.value))"
         refreshViewOnDrinkerChange()
         
     }
     
     @IBAction func onClickReset(_ sender: UIButton) {
-        user.nbBeer = 0
-        user.nbWine = 0
-        user.nbWhiskey = 0
-        user.nbVodka = 0
+         actuelProfil.nbOfGllasses[0] = 0
+        actuelProfil.nbOfGllasses[1] = 0
+        actuelProfil.nbOfGllasses[2] = 0
+        actuelProfil.nbOfGllasses[3] = 0
         refreshViewOnDrinkerChange()
     }
     
     @IBAction func buttonSettingTapped(_ sender: UIButton) {
+        
         performSegue(withIdentifier: "seguesToSettings", sender: self)
     }
     
@@ -69,26 +92,11 @@ class MainVC: UIViewController {
         performSegue(withIdentifier: "MainToInfo", sender: self)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "seguesToSettings"
-        {
-            if let destinationVC = segue.destination as? SettingVC
-            {
-                destinationVC.userSetting = user
-            }
-        }
-        if segue.identifier == "MainToInfo"
-            {
-                if let destinationVC = segue.destination as? InfoVC
-                {
-                    destinationVC.userInfo = user
-                }
-        }
-    }
+
     
     func refreshViewOnDrinkerChange()
     {
-        stepperBeer.value = Double(user.nbBeer)
+       /* stepperBeer.value = Double(user.nbBeer)
         stepperWine.value = Double(user.nbWine)
         stepperWhiskey.value = Double(user.nbWhiskey)
         stepperVodka.value = Double(user.nbVodka)
@@ -96,10 +104,18 @@ class MainVC: UIViewController {
         beerCount.text = String(user.nbBeer)
         wineCount.text = String(user.nbWine)
         whiskeyCount.text = String(user.nbWhiskey)
-        vodkaCount.text = String(user.nbVodka)
-        valeurEstimationText.text = doubleToString(myDouble: user.getEstimatedAlcoolRate() , nbOfDigits: 2)! + " g/L"
+        vodkaCount.text = String(user.nbVodka)*/
+        for (index,drinked) in actuelProfil.nbOfGllasses.enumerated()
+        {
+            listGlassesCounter[index].text = "\(drinked)"
+            listOfDrinkStepper[index].value = Double(drinked)
+        }
+       // valeurEstimationText.text = doubleToString(myDouble: user.getEstimatedAlcoolRate() , nbOfDigits: 2)! + " g/L"
+        let tauxAlcool = actuelProfil.getAlcoolrateInBlood(drinks:drinkList)
+        valeurEstimationText.text = String(format: "%0.2f",tauxAlcool) + " g/L"
+    
         
-        if user.getEstimatedAlcoolRate() > 0.49
+        if tauxAlcool > 0.49
         {
             iconeMortBourre.isHidden = false
             valeurEstimationText.textColor = UIColor.red

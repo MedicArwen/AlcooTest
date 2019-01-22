@@ -28,16 +28,9 @@ var userInfo = Drinker()
     }
     */
     @IBAction func onButtonFermerClick(_ sender: UIButton) {
-        performSegue(withIdentifier: "InfoToMain", sender: self)
-    }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "InfoToMain"
-        {
-            if let destinationVC = segue.destination as? MainVC
-            {
-                destinationVC.user = userInfo
-            }
+        self.dismiss(animated: true) {
         }
     }
+
     
 }

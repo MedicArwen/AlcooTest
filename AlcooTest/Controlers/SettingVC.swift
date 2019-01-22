@@ -10,8 +10,8 @@ import UIKit
 
 class SettingVC: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
     
-    var userSetting = Drinker()
     var pickerDataSource = ["59 Kg"];
+    var currentProfile = Profil()
     
     @IBOutlet weak var femaleSelector: UIButton!
     @IBOutlet weak var maleSelector: UIButton!
@@ -23,7 +23,7 @@ class SettingVC: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         self.pickerView.dataSource = self;
         self.pickerView.delegate = self;
@@ -33,66 +33,59 @@ class SettingVC: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
         }
     }
     override func viewWillAppear(_ animated: Bool) {
-     updateVisualSelector()
-     //   pickerWeight.
+        print("will appear")
+        print(currentProfile.gender)
+        updateVisualSelector()
+        
+        //   pickerWeight.
     }
     
-
+    
     @IBOutlet weak var weightSelector: UIPickerView!
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
     @IBAction func onclickMaleFemale(_ sender: UIButton) {
-    switch sender.tag {
-        case 0: userSetting.sexDrinker = "f"
-        case 1: userSetting.sexDrinker = "m"
+        switch sender.tag {
+        case 0: currentProfile.gender = .woman
+        case 1: currentProfile.gender  = .man
         default: break
         }
+         currentProfile.saveDataUser()
+        print(currentProfile.gender)
         updateVisualSelector()
     }
     
     func updateVisualSelector()
     {
-        if userSetting.sexDrinker == "f"
+        if currentProfile.gender == .woman
         {
             femaleSelector.alpha = 1.0
             maleSelector.alpha = 0.70
-            testlabel.text = "female"
         }
         else
         {
             femaleSelector.alpha = 0.70
             maleSelector.alpha = 1.0
-            testlabel.text = "male"
         }
+
+        // pickerView.selectRow(Int(userSetting.wreightDrinker-59), inComponent: 1, animated: true)
     }
     @IBAction func buttonValidateSettingTapped(_ sender: UIButton) {
-           performSegue(withIdentifier: "seguesToMain", sender: self)
-    }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "seguesToMain"
-        {
-            if let destinationVC = segue.destination as? MainVC
-            {
-                destinationVC.user = userSetting
-            }
+       
+        self.dismiss(animated: true) {
+            
         }
+        
     }
-    /*
-     @IBAction func buttonSettingTapped(_ sender: UIButton) {
-     performSegue(withIdentifier: "seguesToMain", sender: self)
-     }
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-   
-     }
- */
+    
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -101,12 +94,14 @@ class SettingVC: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return pickerDataSource.count
     }
-
+    
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-         return pickerDataSource[row]
+        return pickerDataSource[row]
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        userSetting.wreightDrinker = Double(row + 59)
-        testlabel.text = doubleToString(myDouble: userSetting.wreightDrinker, nbOfDigits: 2)
+        currentProfile.weight = (row + 59)
+    }
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        return NSAttributedString(string: pickerDataSource[row], attributes: [NSMutableAttributedString.Key.foregroundColor: UIColor.white])
     }
 }

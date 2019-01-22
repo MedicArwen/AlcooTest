@@ -16,6 +16,9 @@
 		FC51390E21F5D12B00373C78 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC51390D21F5D12B00373C78 /* Utilities.swift */; };
 		FC51391021F5D86700373C78 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC51390F21F5D86700373C78 /* SettingVC.swift */; };
 		FC51391221F6025900373C78 /* InfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC51391121F6025900373C78 /* InfoVC.swift */; };
+		FC51391421F71EE500373C78 /* Profil.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC51391321F71EE500373C78 /* Profil.swift */; };
+		FC51391621F71F0300373C78 /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC51391521F71F0300373C78 /* Drink.swift */; };
+		FC51391821F71F1B00373C78 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC51391721F71F1B00373C78 /* Gender.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		FC51390D21F5D12B00373C78 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		FC51390F21F5D86700373C78 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
 		FC51391121F6025900373C78 /* InfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoVC.swift; sourceTree = "<group>"; };
+		FC51391321F71EE500373C78 /* Profil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profil.swift; sourceTree = "<group>"; };
+		FC51391521F71F0300373C78 /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
+		FC51391721F71F1B00373C78 /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +102,9 @@
 			isa = PBXGroup;
 			children = (
 				FC51390B21F5C57700373C78 /* drinker.swift */,
+				FC51391321F71EE500373C78 /* Profil.swift */,
+				FC51391521F71F0300373C78 /* Drink.swift */,
+				FC51391721F71F1B00373C78 /* Gender.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -171,11 +180,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC51391421F71EE500373C78 /* Profil.swift in Sources */,
 				FC51390C21F5C57700373C78 /* drinker.swift in Sources */,
 				FC3267B521F217870090AD87 /* MainVC.swift in Sources */,
 				FC51391021F5D86700373C78 /* SettingVC.swift in Sources */,
 				FC51390E21F5D12B00373C78 /* Utilities.swift in Sources */,
 				FC51391221F6025900373C78 /* InfoVC.swift in Sources */,
+				FC51391821F71F1B00373C78 /* Gender.swift in Sources */,
+				FC51391621F71F0300373C78 /* Drink.swift in Sources */,
 				FC3267B321F217870090AD87 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
