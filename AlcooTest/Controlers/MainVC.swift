@@ -9,9 +9,7 @@
 import UIKit
 
 class MainVC: UIViewController {
-    var user = Drinker()
-    var actuelProfil = Profil()
-    var drinkList = [Drink]()
+   
     @IBOutlet weak var beerCount: UILabel!
     @IBOutlet weak var wineCount: UILabel!
     @IBOutlet weak var whiskeyCount: UILabel!
@@ -33,8 +31,11 @@ class MainVC: UIViewController {
  
     @IBOutlet var test: [UILabel]!
     
+    var actuelProfil = Profil()
+    var drinkList = [Drink]()
     
     override func viewWillAppear(_ animated: Bool) {
+        print ("will appear reload profil")
         refreshViewOnDrinkerChange()
     }
     
@@ -119,6 +120,10 @@ class MainVC: UIViewController {
         {
             iconeMortBourre.isHidden = false
             valeurEstimationText.textColor = UIColor.red
+            let alertControleur = UIAlertController(title: "ATTENTION COUZIN", message: "Tu as trop BU! INTERDIT DE ROULER", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alertControleur.addAction(okAction)
+            present(alertControleur,animated: true)
         }
         else
         {

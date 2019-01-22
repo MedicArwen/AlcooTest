@@ -320,13 +320,24 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nIe-SH-7rS">
+                                <rect key="frame" x="313" y="621" width="46" height="30"/>
+                                <state key="normal" title="Retour">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="functionRetourTapped:" destination="Daf-Yo-xEZ" eventType="touchUpInside" id="R4t-zF-XDm"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.41029960110000002" green="0.55128560250000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="2L1-gR-8og" firstAttribute="centerX" secondItem="cIY-Vx-EbI" secondAttribute="centerX" id="0mR-im-q6b"/>
+                            <constraint firstItem="W88-CK-nfG" firstAttribute="trailing" secondItem="nIe-SH-7rS" secondAttribute="trailing" constant="16" id="CN6-F7-EQl"/>
                             <constraint firstItem="ezk-SX-2z0" firstAttribute="top" secondItem="W88-CK-nfG" secondAttribute="top" constant="50" id="EQa-v5-0kT"/>
                             <constraint firstItem="ezk-SX-2z0" firstAttribute="centerX" secondItem="cIY-Vx-EbI" secondAttribute="centerX" id="Hdk-QF-5fv"/>
                             <constraint firstItem="R1F-FX-eya" firstAttribute="top" secondItem="ezk-SX-2z0" secondAttribute="bottom" constant="8" id="MV0-kq-NvK"/>
+                            <constraint firstItem="W88-CK-nfG" firstAttribute="bottom" secondItem="nIe-SH-7rS" secondAttribute="bottom" constant="16" id="lbn-ds-9Y2"/>
                             <constraint firstItem="2L1-gR-8og" firstAttribute="centerY" secondItem="cIY-Vx-EbI" secondAttribute="centerY" id="nAO-TC-KCt"/>
                             <constraint firstItem="R1F-FX-eya" firstAttribute="centerX" secondItem="cIY-Vx-EbI" secondAttribute="centerX" id="rc0-pN-icz"/>
                         </constraints>

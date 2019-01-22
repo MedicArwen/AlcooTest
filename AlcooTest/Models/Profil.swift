@@ -13,6 +13,7 @@ class Profil
     var nbOfGllasses = [Int]()
     var gender: Gender
     init() {
+        print("init")
         let userWeight = UserDefaults.standard.integer(forKey: "weight")
         if userWeight != 0 {
             self.weight = userWeight
@@ -21,45 +22,50 @@ class Profil
         {
             self.weight = 60
         }
+        print(UserDefaults.standard.integer(forKey: "gender"))
         let userGender = UserDefaults.standard.integer(forKey: "gender")
-        if userGender == 0 , userGender == 1 {
+        if (userGender == 0) || (userGender == 1) {
             self.gender = Gender(rawValue: userGender)!
+            print("trouve un genre:")
+            print(Gender(rawValue: userGender)!)
         }
         else
         {
+            print("pas trouvé le genre")
             self.gender = .man
         }
+        saveDataUser()
+        print("end init")
     }
-    func reloadData()
+    func getGender()->Gender?
     {
-        let userWeight = UserDefaults.standard.integer(forKey: "weight")
-        if userWeight != 0 {
-            self.weight = userWeight
-        }
-        else
-        {
-            self.weight = 60
-        }
-        let userGender = UserDefaults.standard.integer(forKey: "gender")
-        if userGender == 0 , userGender == 1 {
-            self.gender = Gender(rawValue: userGender)!
-        }
-        else
-        {
-            self.gender = .man
-        }
+        return Gender(rawValue: UserDefaults.standard.integer(forKey: "gender"))
     }
+    func getWeight()->Int
+    {
+        return UserDefaults.standard.integer(forKey: "weight")
+    }
+    
     func getAlcoolrateInBlood(drinks: [Drink])->Double
     {
+        print("getAlcoolrateInBlood")
         var tauxAlcool = 0.0
         var ratio: Double
-        if gender == .man { ratio = 0.7}
-        else
-        {ratio = 0.6}
-        
-        for (index,drink) in drinks.enumerated(){
-            tauxAlcool += (Double(self.nbOfGllasses[index]) * drink.sizeGlass * drink.alcoholRate * 0.8) / (Double(self.weight)*ratio)
+        if let gender = getGender()
+        {
+            if gender == .man { ratio = 0.7
+                print("un mec")
+            }
+            else
+            {ratio = 0.6
+                print("une nana")
+            }
+            
+            for (index,drink) in drinks.enumerated(){
+                tauxAlcool += (Double(self.nbOfGllasses[index]) * drink.sizeGlass * drink.alcoholRate * 0.8) / (Double(self.weight)*ratio)
+            }
         }
+        print(" end getAlcoolrateInBlood")
         return tauxAlcool
     }
     func drinkSomething(alcoolIndex: Int, glassCount: Int)
